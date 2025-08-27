@@ -2,6 +2,7 @@ package com.waait.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -11,6 +12,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.MessagingException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,6 +29,7 @@ import com.waait.dto.Department;
 import com.waait.dto.Employee;
 import com.waait.dto.JobLevel;
 import com.waait.dto.MovingDepartment;
+import com.waait.service.EmailService;
 import com.waait.service.EmployeeManagementService;
 
 import jakarta.servlet.http.HttpSession;
@@ -38,7 +41,7 @@ import lombok.RequiredArgsConstructor;
 public class EmployeeManagementController {
 	
 	private final EmployeeManagementService service;
-	//private final EmailService emailService;
+	private final EmailService emailService;
 	private final BCryptPasswordEncoder encoder;
 	//private final ObjectMapper mapper;
 	
@@ -430,17 +433,18 @@ public class EmployeeManagementController {
 						emp.setRemainingAnnualLeave(15); break;
 		}
 		
+		try {
+			emailService.sendInitialIdAndPwd(usingEmail, userId, initialPwd);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
+		
 		int result = 0;
 		result = service.enrollEmployee(emp);
 		userId += emp.getEmpNo();
 		
-//		try {
-//			//emailService.sendInitialIdAndPwd(usingEmail, userId, initialPwd);
-//		} catch (UnsupportedEncodingException e) {
-//			e.printStackTrace();
-//		} catch (MessagingException e) {
-//			e.printStackTrace();
-//		}
 		System.out.println("등록할 사원정보 : " + emp);
 		return null;
 	}
