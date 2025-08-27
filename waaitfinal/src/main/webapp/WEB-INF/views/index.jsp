@@ -205,8 +205,13 @@
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                     <h6 class="text-muted font-semibold">근무시간</h6>
-                                    <h6>${workTotal.get(0).workStart}</h6>                                                                    
-                                    <h6>${workTotal.get(0).workEnd}</h6>
+                                    <c:if test="${not empty workTotal }">
+	                                    <h6>${workTotal.get(0).workStart}</h6>                                                                    
+	                                    <h6>${workTotal.get(0).workEnd}</h6>
+                                    </c:if>
+                                    <c:if test="${empty workTotal }">
+                                    	<h6>근무시간이 없습니다.</h6>
+                                    </c:if>
                                 </div>
                             </div> 
                         </div>
