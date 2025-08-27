@@ -350,7 +350,7 @@ public class EmployeeManagementController {
 		String profilePath = session.getServletContext().getRealPath("/resources/upload/emp/profile/");
 		System.out.println("등록하려는 사원정보 : " + emp);
 		System.out.println("사원등록 parameter => usingEmail : " + usingEmail + " deptCode : " + deptCode + " teamCode : " + teamCode);
-		if(profile != null) {
+		if(!profile.isEmpty() && profile != null) {
 			System.out.println("profile originalName : " + profile.getOriginalFilename());
 			String oriName = profile.getOriginalFilename();
 			String ext = oriName.substring(oriName.lastIndexOf("."));
@@ -371,7 +371,7 @@ public class EmployeeManagementController {
 			emp.setEmpProfile(rename);
 		}
 		
-		if(signfile != null) {
+		if(!signfile.isEmpty() && signfile != null) {
 			System.out.println("signFile originalName : " + signfile.getOriginalFilename());
 			String oriName = signfile.getOriginalFilename();
 			String ext = oriName.substring(oriName.lastIndexOf("."));
