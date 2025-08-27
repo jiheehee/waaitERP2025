@@ -9,7 +9,7 @@
 	
 /* 조직도 */
 document.addEventListener("DOMContentLoaded", function () {
-    fetch('/api/nodeData')
+    fetch(path + '/api/nodeData')
         .then(response => response.json())
         .then(data => {
         	console.log(data);

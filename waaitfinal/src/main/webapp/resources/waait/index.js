@@ -13,34 +13,34 @@ const diffMins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
 
 
 const work =()=>{
-	fetch(`${contextPath}/insert/work`,{
+	fetch(`${path}/insert/work`,{
 		method : "POST",
 		headers: {
 			'Content-Type' : 'application/json;charset=UTF-8'
 		}
 	}).then(response=>response.json())
 	.then(data=>{
-		location.assign(`${contextPath}/`);
+		location.assign(`${path}/`);
 	})
 	.catch((error)=>{
 		console.log(error);
-		location.assign(`${contextPath}/teamproject/error`);
+		location.assign(`${path}/teamproject/error`);
 	})
 	
 }
 const leaveWork =()=>{
-	fetch(`${contextPath}/insert/leavework`,{
+	fetch(`${path}/insert/leavework`,{
 		method : "POST",
 		headers: {
 			'Content-Type' : 'application/json;charset=UTF-8'
 		}
 	}).then(response=>response.json())
 	.then(data=>{
-		location.assign(`${contextPath}/`);
+		location.assign(`${path}/`);
 	})
 	.catch((error)=>{
 		console.log(error);
-		location.assign(`${contextPath}/teamproject/error`);
+		location.assign(`${path}/teamproject/error`);
 	})
 	
 }
