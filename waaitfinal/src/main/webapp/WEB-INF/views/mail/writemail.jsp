@@ -35,10 +35,10 @@
 				<div class="sectionHeaderContainer">
 	        <div class="senderContainer flex-divcontainer">
 	            <div class="padding-top3">
-	                <span class="boldtext">${emp.empName }</span>
+	                <span class="boldtext">보내는 사람</span>
 	            </div>
 	            <div class="senderInputContainer">
-	                <input type="text" class="inherit-input" name="senderMailAddress">
+	                <input type="text" class="nonestyle-input" name="senderMailAddress" value="${emp.empEmail }">
 	            </div>
 	        </div>
 	        <div class="receiverContainer flex-divcontainer">
