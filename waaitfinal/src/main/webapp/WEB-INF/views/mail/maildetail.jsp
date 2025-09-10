@@ -56,7 +56,7 @@
 		                                        	"favorite"
 		                                        </c:if>
 		                                	>
-												<svg class="bi" width="1.5em" height="1.5em" fill="currentColor">
+												<svg class="bi" width="1.5em" height="1.5em" fill="currentColor" style="padding-bottom: 2px;">
 		                                            <use xlink:href=<c:if test="${mail.mailStatus eq '즐겨찾기' }" >
 				                                                    	"${path }/resources/assets/static/images/bootstrap-icons.svg#star-fill"
 				                                                    </c:if>
@@ -95,7 +95,9 @@
 										</div>
 										<div id="deleteButtonContainer">
 											<!-- <button class="btn btn-danger" onclick="deleteMail()">삭제버튼</button> -->
-											<img src="${path }/resources/waait/mail/img/trashcan.png" style="width: 25px; height: 25px" />
+											<button class="non-style-button" onclick="deleteMail()">
+												<img src="${path }/resources/waait/mail/img/trashcan.png" style="width: 20px; height: 20px" />
+											</button>
 										</div>
 										<div id="myMailBoxOptionContainer">
 											<%-- <c:if test="${not empty myMailBoxes }">
@@ -108,7 +110,11 @@
 											</c:if> --%>
 										</div>
 										<div id="moveMyMailBoxButtonContainer">
-											<button class="btn btn-primary" onclick="moveMyMailBox()">메일함 이동</button>
+											<!-- <button class="btn btn-primary" onclick="moveMyMailBox()">메일함 이동</button> -->
+											<button onclick="moveMyMailBox()" class="non-style-button">
+												<img src="${path }/resources/waait/mail/img/movementmailbox.png" 
+																					style="width: 23px; height: 28px; margin-right: 3px;" />											
+											</button>
 										</div>
 									</div>
 									<div class="card-body py-1">
@@ -275,6 +281,10 @@
 }
 #moveMyMailBoxButtonContainer {
 	margin-right: 5px;
+}
+.non-style-button {
+	background: none;
+	border: none;
 }
 </style>
 </html>
