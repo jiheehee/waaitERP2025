@@ -68,11 +68,11 @@
 		                                    </span>
                                         </button>
 									<div class="dropdown">
-										<a href="#" class="dropdown-toggle" id="third-open-menu"
+										<!-- <a href="#" class="dropdown-toggle" id="third-open-menu"
 											data-toggle="dropdown" aria-haspopup="true"
 											aria-expanded="false"> <i
 											class="bi bi-dots-vertical-rounded me-0"></i>
-										</a>
+										</a> -->
 										<div class="dropdown-menu dropdown-menu-right"
 											aria-labelledby="second-open-submenu">
 											<a href="#" class="dropdown-item mail-reply"> <i
@@ -94,7 +94,8 @@
 											제목 : ${mail.mailTitle }										
 										</div>
 										<div id="deleteButtonContainer">
-											<button class="btn btn-danger" onclick="deleteMail()">삭제버튼</button>
+											<!-- <button class="btn btn-danger" onclick="deleteMail()">삭제버튼</button> -->
+											<img src="${path }/resources/waait/mail/img/trashcan.png" style="width: 25px; height: 25px" />
 										</div>
 										<div id="myMailBoxOptionContainer">
 											<%-- <c:if test="${not empty myMailBoxes }">
@@ -271,6 +272,9 @@
 }
 #deleteButtonContainer {
 	margin-left: auto;
+}
+#moveMyMailBoxButtonContainer {
+	margin-right: 5px;
 }
 </style>
 </html>
