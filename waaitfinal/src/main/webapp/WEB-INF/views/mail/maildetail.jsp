@@ -97,14 +97,14 @@
 											<button class="btn btn-danger" onclick="deleteMail()">삭제버튼</button>
 										</div>
 										<div id="myMailBoxOptionContainer">
-											<c:if test="${not empty myMailBoxes }">
+											<%-- <c:if test="${not empty myMailBoxes }">
 												<select class="form-control" id="myMailBoxSelect">
 													<option value="default" disabled>메일함을 선택하세요</option>
 													<c:forEach var="myMailBox" items="${myMailBoxes }">
 														<option value="${myMailBox.myMailBoxNo }">메일함 이름 : ${myMailBox.myMailBoxName }</option>
 													</c:forEach>
 												</select>
-											</c:if>
+											</c:if> --%>
 										</div>
 										<div id="moveMyMailBoxButtonContainer">
 											<button class="btn btn-primary" onclick="moveMyMailBox()">메일함 이동</button>
@@ -152,10 +152,10 @@
 			<div class="ps__rail-x" style="left: 0px; bottom: 0px;">
 				<div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
 			</div>
-			<div class="ps__rail-y" style="top: 0px; height: 736px; right: 0px;">
+			<!-- <div class="ps__rail-y" style="top: 0px; height: 736px; right: 0px;">
 				<div class="ps__thumb-y" tabindex="0"
 					style="top: 0px; height: 626px;"></div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<!--/ Detailed Email View -->
@@ -268,6 +268,9 @@
 .card .card-body {
     border-top: 1px solid black;
     margin-bottom: 340px;
+}
+#deleteButtonContainer {
+	margin-left: auto;
 }
 </style>
 </html>
