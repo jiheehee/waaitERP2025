@@ -26,12 +26,13 @@
 		<connection />
 		<developerConnection />
 		<tag />
-		<url /> 
+		<url />
 	</scm>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jdbc</artifactId>
@@ -64,11 +65,33 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+		<!-- autonomous oracle cloud database connection-->
+		
 		<dependency>
 			<groupId>com.oracle.database.jdbc</groupId>
 			<artifactId>ojdbc11</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.security/osdt_cert -->
+		<dependency>
+		    <groupId>com.oracle.database.security</groupId>
+		    <artifactId>osdt_cert</artifactId>
+		    <version>21.17.0.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.security/osdt_core -->
+		<dependency>
+		    <groupId>com.oracle.database.security</groupId>
+		    <artifactId>osdt_core</artifactId>
+		    <version>21.9.0.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.oracle.database.security/oraclepki -->
+		<dependency>
+		    <groupId>com.oracle.database.security</groupId>
+		    <artifactId>oraclepki</artifactId>
+		    <version>23.7.0.25.01</version>
+		</dependency>
+		
+		<!-- autonomous oracle cloud database connection-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -146,25 +169,7 @@
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/com.oracle.database.security/osdt_cert -->
-      <dependency>
-          <groupId>com.oracle.database.security</groupId>
-          <artifactId>osdt_cert</artifactId>
-          <version>21.17.0.0</version>
-      </dependency>
-      <!-- https://mvnrepository.com/artifact/com.oracle.database.security/osdt_core -->
-      <dependency>
-          <groupId>com.oracle.database.security</groupId>
-          <artifactId>osdt_core</artifactId>
-          <version>21.9.0.0</version>
-      </dependency>
-      <!-- https://mvnrepository.com/artifact/com.oracle.database.security/oraclepki -->
-      <dependency>
-          <groupId>com.oracle.database.security</groupId>
-          <artifactId>oraclepki</artifactId>
-          <version>23.7.0.25.01</version>
-      </dependency>
+
 	</dependencies>
 
 	<build>
