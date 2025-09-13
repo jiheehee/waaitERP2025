@@ -182,7 +182,25 @@
 		</div>
 	</div>
 </footer>
+<div class="movemail-modal">
+	<c:if test="${not empty myMailBoxes }">
+		<ul>
+			<li></li>
+		</ul>
+	</c:if>
+	<c:if test="${empty myMailBoxes }">
+		<h3 style="text-align: center; ">내 메일함 없음</h2>
+	</c:if>
+</div>
 
+<%-- <c:if test="${not empty myMailBoxes }">
+												<select class="form-control" id="myMailBoxSelect">
+													<option value="default" disabled>메일함을 선택하세요</option>
+													<c:forEach var="myMailBox" items="${myMailBoxes }">
+														<option value="${myMailBox.myMailBoxNo }">메일함 이름 : ${myMailBox.myMailBoxName }</option>
+													</c:forEach>
+												</select>
+											</c:if> --%>
 <script src="${path }/resources/assets/static/js/components/dark.js"></script>
 <script
 	src="${path }/resources/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
@@ -285,6 +303,17 @@
 .non-style-button {
 	background: none;
 	border: none;
+}
+.movemail-modal {
+	/* display: none; */
+	border: 1px solid black;
+	border-radius: 10px;
+	height: 400px;
+	width: 300px;
+	position: absolute;
+	top: 20%;
+	right: 0.4%;
+	/* transform: translateX(-50%); */
 }
 </style>
 </html>
