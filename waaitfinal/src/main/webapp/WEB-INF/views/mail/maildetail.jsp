@@ -56,7 +56,7 @@
 		                                        	"favorite"
 		                                        </c:if>
 		                                	>
-												<svg class="bi" width="1.5em" height="1.5em" fill="currentColor">
+												<svg class="bi" width="1.5em" height="1.5em" fill="currentColor" style="padding-bottom: 2px;">
 		                                            <use xlink:href=<c:if test="${mail.mailStatus eq '즐겨찾기' }" >
 				                                                    	"${path }/resources/assets/static/images/bootstrap-icons.svg#star-fill"
 				                                                    </c:if>
@@ -68,11 +68,11 @@
 		                                    </span>
                                         </button>
 									<div class="dropdown">
-										<a href="#" class="dropdown-toggle" id="third-open-menu"
+										<!-- <a href="#" class="dropdown-toggle" id="third-open-menu"
 											data-toggle="dropdown" aria-haspopup="true"
 											aria-expanded="false"> <i
 											class="bi bi-dots-vertical-rounded me-0"></i>
-										</a>
+										</a> -->
 										<div class="dropdown-menu dropdown-menu-right"
 											aria-labelledby="second-open-submenu">
 											<a href="#" class="dropdown-item mail-reply"> <i
@@ -94,20 +94,27 @@
 											제목 : ${mail.mailTitle }										
 										</div>
 										<div id="deleteButtonContainer">
-											<button class="btn btn-danger" onclick="deleteMail()">삭제버튼</button>
+											<!-- <button class="btn btn-danger" onclick="deleteMail()">삭제버튼</button> -->
+											<button class="non-style-button" onclick="deleteMail()">
+												<img src="${path }/resources/waait/mail/img/trashcan.png" style="width: 20px; height: 20px" />
+											</button>
 										</div>
 										<div id="myMailBoxOptionContainer">
-											<c:if test="${not empty myMailBoxes }">
+											<%-- <c:if test="${not empty myMailBoxes }">
 												<select class="form-control" id="myMailBoxSelect">
 													<option value="default" disabled>메일함을 선택하세요</option>
 													<c:forEach var="myMailBox" items="${myMailBoxes }">
 														<option value="${myMailBox.myMailBoxNo }">메일함 이름 : ${myMailBox.myMailBoxName }</option>
 													</c:forEach>
 												</select>
-											</c:if>
+											</c:if> --%>
 										</div>
 										<div id="moveMyMailBoxButtonContainer">
-											<button class="btn btn-primary" onclick="moveMyMailBox()">메일함 이동</button>
+											<!-- <button class="btn btn-primary" onclick="moveMyMailBox()">메일함 이동</button> -->
+											<button onclick="moveMyMailBox()" class="non-style-button">
+												<img src="${path }/resources/waait/mail/img/movementmailbox.png" 
+																					style="width: 23px; height: 28px; margin-right: 3px;" />											
+											</button>
 										</div>
 									</div>
 									<div class="card-body py-1">
@@ -152,10 +159,10 @@
 			<div class="ps__rail-x" style="left: 0px; bottom: 0px;">
 				<div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
 			</div>
-			<div class="ps__rail-y" style="top: 0px; height: 736px; right: 0px;">
+			<!-- <div class="ps__rail-y" style="top: 0px; height: 736px; right: 0px;">
 				<div class="ps__thumb-y" tabindex="0"
 					style="top: 0px; height: 626px;"></div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<!--/ Detailed Email View -->
@@ -175,7 +182,25 @@
 		</div>
 	</div>
 </footer>
+<div class="movemail-modal">
+	<c:if test="${not empty myMailBoxes }">
+		<ul>
+			<li></li>
+		</ul>
+	</c:if>
+	<c:if test="${empty myMailBoxes }">
+		<h3 style="text-align: center; ">내 메일함 없음</h2>
+	</c:if>
+</div>
 
+<%-- <c:if test="${not empty myMailBoxes }">
+												<select class="form-control" id="myMailBoxSelect">
+													<option value="default" disabled>메일함을 선택하세요</option>
+													<c:forEach var="myMailBox" items="${myMailBoxes }">
+														<option value="${myMailBox.myMailBoxNo }">메일함 이름 : ${myMailBox.myMailBoxName }</option>
+													</c:forEach>
+												</select>
+											</c:if> --%>
 <script src="${path }/resources/assets/static/js/components/dark.js"></script>
 <script
 	src="${path }/resources/assets/extensions/perfect-scrollbar/perfect-scrollbar.min.js"></script>
@@ -268,6 +293,27 @@
 .card .card-body {
     border-top: 1px solid black;
     margin-bottom: 340px;
+}
+#deleteButtonContainer {
+	margin-left: auto;
+}
+#moveMyMailBoxButtonContainer {
+	margin-right: 5px;
+}
+.non-style-button {
+	background: none;
+	border: none;
+}
+.movemail-modal {
+	/* display: none; */
+	border: 1px solid black;
+	border-radius: 10px;
+	height: 400px;
+	width: 300px;
+	position: absolute;
+	top: 20%;
+	right: 0.4%;
+	/* transform: translateX(-50%); */
 }
 </style>
 </html>
